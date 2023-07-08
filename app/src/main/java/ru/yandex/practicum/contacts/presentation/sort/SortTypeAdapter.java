@@ -25,7 +25,7 @@ public class SortTypeAdapter extends RecyclerView.Adapter<SortTypeAdapter.ViewHo
 
     private final AsyncListDiffer<SortTypeUI> differ = new AsyncListDiffer<>(
             new AdapterListUpdateCallback(this),
-            new AsyncDifferConfig.Builder<>(new <SortTypeUI>BaseListDiffCallback()).build()
+            new AsyncDifferConfig.Builder<>(new BaseListDiffCallback<SortTypeUI>()).build() //todo
     );
 
     private final Consumer<SortTypeUI> clickListener;
@@ -91,22 +91,5 @@ public class SortTypeAdapter extends RecyclerView.Adapter<SortTypeAdapter.ViewHo
         }
     }
 
-//    static class ListDiffCallback extends DiffUtil.ItemCallback<SortTypeUI> {// todo стоит удалить, не используется
-//
-//        @Override
-//        public boolean areItemsTheSame(@NonNull SortTypeUI oldItem, @NonNull SortTypeUI newItem) {
-//            return oldItem.getSortType() == newItem.getSortType();
-//        }
-//
-//        @Override
-//        public boolean areContentsTheSame(@NonNull SortTypeUI oldItem, @NonNull SortTypeUI newItem) {
-//            return oldItem.equals(newItem);
-//        }
-//
-//        @Nullable
-//        @Override
-//        public Object getChangePayload(@NonNull SortTypeUI oldItem, @NonNull SortTypeUI newItem) {
-//            return newItem;
-//        }
-//    }
+
 }

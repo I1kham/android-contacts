@@ -5,11 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-//import androidx.annotation.Nullable; //todo стоит удалить, не используется
+
 import androidx.recyclerview.widget.AdapterListUpdateCallback;
 import androidx.recyclerview.widget.AsyncDifferConfig;
 import androidx.recyclerview.widget.AsyncListDiffer;
-//import androidx.recyclerview.widget.DiffUtil;//todo стоит удалить, не используется
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -27,7 +27,7 @@ public class FilterContactTypeAdapter extends RecyclerView.Adapter<FilterContact
 
     private final AsyncListDiffer<FilterContactTypeUi> differ = new AsyncListDiffer<>(
             new AdapterListUpdateCallback(this),
-            new AsyncDifferConfig.Builder<>(new <FilterContactTypeUi> BaseListDiffCallback()).build()// todo
+            new AsyncDifferConfig.Builder<>(new  BaseListDiffCallback<FilterContactTypeUi>()).build() // todo
     );
 
     private final Consumer<FilterContactTypeUi> clickListener;
@@ -86,23 +86,4 @@ public class FilterContactTypeAdapter extends RecyclerView.Adapter<FilterContact
             }
         }
     }
-
-//    static class ListDiffCallback extends DiffUtil.ItemCallback<FilterContactTypeUi> {// todo to delete?
-//
-//        @Override
-//        public boolean areItemsTheSame(@NonNull FilterContactTypeUi oldItem, @NonNull FilterContactTypeUi newItem) {
-//            return oldItem.getContactType() == newItem.getContactType();
-//        }
-//
-//        @Override
-//        public boolean areContentsTheSame(@NonNull FilterContactTypeUi oldItem, @NonNull FilterContactTypeUi newItem) {
-//            return oldItem.equals(newItem);
-//        }
-//
-//        @Nullable
-//        @Override
-//        public Object getChangePayload(@NonNull FilterContactTypeUi oldItem, @NonNull FilterContactTypeUi newItem) {
-//            return newItem;
-//        }
-//    }
 }
